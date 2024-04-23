@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CS50
+{% endblock %}
+
+{% block main %}
+<h1 class="page-header">Some Projects from CS50</h1>
+<div class="slideshow">
+    <div class="slide">
+        <img src="/static/1.png" alt="Slide 1">
+    </div>
+    <div class="slide">
+        <img src="/static/2.png" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <img src="/static/3.png" alt="Slide 3">
+    </div>
+</div>
+<h2 class="slide-title"></h2>
+    <a class="prev" onclick="prevSlide()">&#10094;</a>
+    <a class="next" onclick="nextSlide()">&#10095;</a>
+<script>
+    var slide = 1;
+    var slideTitles = ["Hello, World", "Mario", "Credit"];
+    showSlide(slide);
+
+    function prevSlide() {
+        showSlide(slide -= 1);
+    }
+
+    function nextSlide() {
+        showSlide(slide += 1);
+    }
+
+    function currentSlide(i) {
+        showSlide(slide = i);
+    }
+
+    function showSlide(i) {
+        var j;
+        var slides = document.getElementsByClassName("slide");
+        var titles = document.getElementsByClassName("slide-title");
+        if (i > slides.length) {slide = 1}
+        if (i < 1) {slide = slides.length}
+        for (j = 0; j < slides.length; j++) {
+            slides[j].style.display = "none";
+        }
+        slides[slide-1].style.display = "block";
+        titles[0].innerText = slideTitles[slide - 1];
+    }
+</script>
+{% endblock %}
