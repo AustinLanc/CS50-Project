@@ -49,3 +49,7 @@ def CS50():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     return render_template("contact.html")
+
+
+if __name__ == '__main__':  
+    app.run(host='0.0.0.0')
