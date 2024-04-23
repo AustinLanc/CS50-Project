@@ -16,16 +16,11 @@ cement==2.8.2
 certifi==2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
-check50==3.3.11
-clang-format==18.1.2
-cli50==7.5.1
 click==8.1.7
 colorama==0.4.3
 compare50==1.2.6
 contourpy==1.2.1
 cryptography==42.0.5
-cs50==9.3.4
-CS50-VSIX-Client @ file:///opt/cs50/extensions/cs50vsix-client
 cssselect2==0.7.0
 cycler==0.12.1
 djhtml==3.0.6
@@ -85,8 +80,6 @@ sortedcontainers==2.4.0
 soupsieve==2.5
 SQLAlchemy==2.0.29
 sqlparse==0.4.4
-style50==2.10.3
-submit50==3.1.4
 termcolor==1.1.0
 tinycss2==1.2.1
 tqdm==4.66.2
