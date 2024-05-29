@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="site-content">
+    <div class="nav-box">
+      <nav>
+        <a href="/">Home</a></li>
+        <a href="/about">About</a></li>
+        <a href="/CS50">CS50</a></li>
+        <a href="/contact">Contact</a></li>
+      </nav>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="body-box">
+        {% block main %}{% endblock %}
+    </div>
+  </div>
+</body>
+<script>
+  document.body.style.backgroundColor = "#657b8a";
+  document.querySelector('.switch input').addEventListener('change', e => {
+    if (e.target.checked) {
+      intervalID = setInterval(updateBackgroundColor, 50);
+    } else {
+      clearInterval(intervalID);
+      document.body.style.backgroundColor = "#657b8a";
+    }
+  });
+
+  var hue = 0;
+
+  function updateBackgroundColor() {
+    const saturation = 100;
+    const lightness = 50;
+    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    document.body.style.backgroundColor = color;
+    hue += 2;
+    if (hue > 360){
+      hue = 0;
+    }
+  }
+
+  </script>
+</html>
