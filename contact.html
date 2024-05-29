@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block main %}
+<h1 class="page-header">Contact Me</h1>
+<p>Please fill out the form below for any questions/comments</p>
+<div class="container">
+  <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xqkrgrvb" method="post">
+    <div class="form-group">
+      <input type="text" class="form-control" name="name" id="full-name" placeholder="Name" required autofill="false">
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" name="_replyto" id="email-address" placeholder="Email Address" required autofill="false">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" rows="5" name="message" id="message" required autofill="false" placeholder="Message"></textarea>
+    </div>
+    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
