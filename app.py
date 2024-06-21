@@ -1,6 +1,7 @@
 import sqlite3
 from datetime import datetime
 from flask import Flask, render_template, request
+import csv
 
 app = Flask(__name__)
 
@@ -28,15 +29,23 @@ def index():
     cursor = conn.cursor()
     data = cursor.execute("SELECT * FROM signatures")
     if request.method == "POST":
-        signiture = request.form.get("signature")
-        with open("static/profanity-list.txt", "r") as file:
-            if any(signiture.lower() in line.lower() for line in file):
-                return render_template("index.html", data=data)
-            elif signiture:
-                cursor.execute("INSERT INTO signatures (signature, time) VALUES(?, ?)", (signiture, datetime.now().date()))
-                conn.commit()
-                data = cursor.execute("SELECT * FROM signatures")
+        signature = request.form.get("signature")
+        if check_for_profanity(signature):
+            return render_template("index.html", data=data)
+        elif signature and len(signature) <= 16:
+            cursor.execute("INSERT INTO signatures (signature, time) VALUES(?, ?)", (signature, datetime.now().date()))
+            conn.commit()
+            data = cursor.execute("SELECT * FROM signatures")
     return render_template("index.html", data=data)
+
+def check_for_profanity(signature):
+    with open("static/profanity_en.csv", "r", newline='', encoding='utf-8') as file:
+        csv_reader = csv.reader(file)
+        for row in csv_reader:
+            for cell in row:
+                if signature.lower() in cell.lower():
+                    return True
+    return False
 
 @app.route("/about")
 def about():
@@ -49,3 +58,4 @@ def CS50():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     return render_template("contact.html")
+

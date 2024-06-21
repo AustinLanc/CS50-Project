@@ -46,7 +46,7 @@ body {
     min-height: 50px;
     padding: 0 10px;
     border: 0.3rem solid #445d6e;
-    font-size: calc(1rem + 1vmax);
+    font-size: max(1rem, 2vw);
 }
 
 nav {
@@ -116,18 +116,20 @@ input:checked + .slider.round:before {
 
 .container {
     display: flex;
+    width: 100%;
 }
 
 .container p {
-    text-align: justify;
+    text-align: left;
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 1rem;
 }
 
 #selfie {
-    width: 460px;
-    height: 500px;
+    width: 30vw;
+    height: 33vw;
+    padding-right: 1rem;
 }
 
 .navigation {
@@ -161,10 +163,10 @@ input:checked + .slider.round:before {
 }
 
 .text-block p {
-    text-align: justify;
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    font-size: max(0.8rem, 1.5vw);
 }
 
 .text-block code {
@@ -185,6 +187,10 @@ input:checked + .slider.round:before {
 
 .text-block img:active {
     transform: scale(2); /* edit this later */
+}
+
+.navigation {
+    font-size: max(0.8rem, 1.5vw);
 }
 
 .navigation ul {
