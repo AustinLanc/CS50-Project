@@ -15,38 +15,10 @@
     </form>
 </div>
 <br>
-<div id="scrollingList" style="height: 200px; overflow-y: hidden; pointer-events: none;">
-    <div id="innerList">
-        {% for item in data %}
-            <div>{{ item[0] }}. {{ item[1] }} - {{ item[2] }}</div>
-        {% endfor %}
-    </div>
+<div id="scrollingList" style="height:50%; overflow-y:scroll;">
+    {% for item in data %}
+        <div>{{ item[0] }}. {{ item[1] }} - {{ item[2] }}</div>
+    {% endfor %}
 </div>
-<script>
-    var scrollingList = document.getElementById('scrollingList');
-    var innerList = document.getElementById('innerList');
-    var listItemHeight = innerList.firstElementChild.clientHeight;
-    var totalHeight = innerList.clientHeight;
 
-    var cloneList = innerList.cloneNode(true);
-    scrollingList.appendChild(cloneList);
-
-    function scrollList() {
-        if (scrollingList.scrollTop >= totalHeight) {
-            scrollingList.scrollTop = 0;
-        } else {
-            scrollingList.scrollTop += 1;
-        }
-    }
-
-    var scrollInterval = setInterval(scrollList, 50);
-
-    scrollingList.addEventListener('mouseenter', function() {
-        clearInterval(scrollInterval);
-    });
-
-    scrollingList.addEventListener('mouseleave', function() {
-        scrollInterval = setInterval(scrollList, 50);
-    });
-</script>
 {% endblock %}
