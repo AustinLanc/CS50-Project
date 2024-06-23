@@ -1,5 +1,5 @@
 # Portfolio for Austin Lancaster
-#### Video Demo: 
+#### Video Demo: https://youtu.be/53WRinLdJkY
 #### Description:
 I have created a web application to display information about myself and to show off the projects we completed in CS50.  When thinking of what to do for the final project, I wanted to make something that I could update and keep using in the future.  While I initially thought of making a mobile game for android devices, I decided that I would not be able to sufficiently create a complex and neat looking application.  This led me to my second idea: a web application.
 
